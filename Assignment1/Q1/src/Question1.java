@@ -349,10 +349,12 @@ class SearchTreeNode {
      */
     void printSearchPath() {
         if (parent != null) parent.printSearchPath();
+        System.out.print('[');
         for (int[] row : val) {
-            System.out.println(Arrays.toString(row));
+            System.out.print(Arrays.toString(row));
         }
-        System.out.println();
+        System.out.print(']');
+        System.out.print(" ---> ");
     }
 }
 
@@ -361,6 +363,6 @@ public class Question1 {
         int[][] initialState = {{1,4,2}, {5,3,0}};
         int[][] goalState = {{0,1,2}, {5,4,3}};
         PuzzleGame puzzle = new PuzzleGame(initialState);
-        System.out.println(puzzle.iterativeDeepeningSearch(goalState,100) ? "OK" : "No solution exists!");
+        System.out.println(puzzle.iterativeDeepeningSearch(goalState, 4) ? "OK" : "No solution exists!");
     }
 }
